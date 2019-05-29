@@ -1,5 +1,5 @@
 class CommentFilesController < ApplicationController
-  before_action :set_comment_file, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment_file, only: %i[show edit update destroy]
 
   # GET /comment_files
   def index
@@ -7,8 +7,7 @@ class CommentFilesController < ApplicationController
   end
 
   # GET /comment_files/1
-  def show
-  end
+  def show; end
 
   # GET /comment_files/new
   def new
@@ -16,8 +15,7 @@ class CommentFilesController < ApplicationController
   end
 
   # GET /comment_files/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /comment_files
   def create
