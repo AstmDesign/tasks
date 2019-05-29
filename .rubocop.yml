@@ -20,7 +20,7 @@ Style/MutableConstant:
 Metrics/MethodLength:
   Enabled: false
 Metrics/LineLength:
-  Max: 150
+  Max: 170
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:

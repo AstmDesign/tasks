@@ -44,13 +44,13 @@ class CommentFilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment_file
-      @comment_file = CommentFile.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment_file
+    @comment_file = CommentFile.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def comment_file_params
-      params.require(:comment_file).permit(:comment_id, :file)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def comment_file_params
+    params.require(:comment_file).permit(:comment_id, :file)
+  end
 end
