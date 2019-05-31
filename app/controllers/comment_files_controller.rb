@@ -44,6 +44,7 @@ class CommentFilesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_comment_file
     @comment_file = CommentFile.find(params[:id])
