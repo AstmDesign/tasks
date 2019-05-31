@@ -1,5 +1,7 @@
 class Comment < ApplicationRecord
-  belongs_to :task
+  # DB Relations
+  has_many :comment_files, dependent: :destroy
+  belongs_to :user
 
   # Validation
   validates :comment, presence: true
