@@ -5,8 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Details</th>
+      <th>User</th>
+      <th>Task</th>
+      <th>Project</th>
       <th>Priority</th>
       <th>Status</th>
       <th>Deadline</th>
@@ -17,8 +18,9 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
+        <td><%= task.user.full_name %></td>
         <td><%= task.title %></td>
-        <td><%= task.details %></td>
+        <td><%= task.project.name %></td>
         <td><%= task.priority %></td>
         <td><%= task.status %></td>
         <td><%= task.deadline %></td>

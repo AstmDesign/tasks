@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :project_id %>
+    <%= form.select :project_id, options_from_collection_for_select(@projects, :id, :name, task.project_id), {:include_blank => true}, {required: 'true', class: '' , placeholder: 'Select project'} %>
+  </div>
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
@@ -23,12 +28,12 @@
 
   <div class="field">
     <%= form.label :priority %>
-    <%= form.text_field :priority %>
+    <%= form.select :priority, { High: 'high', Normal: 'normal', Low: 'low' }, { selected: task.priority }, class: '' %>
   </div>
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.select :status, { Pending: 'pending', In_Progress: 'in_progress', Finished: 'finished' }, { selected: task.status }, class: '' %>
   </div>
 
   <div class="field">

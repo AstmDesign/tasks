@@ -12,10 +12,13 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @projects = Project.all
   end
 
   # GET /tasks/1/edit
-  def edit; end
+  def edit
+    @projects = Project.all
+  end
 
   # POST /tasks
   def create
@@ -52,6 +55,6 @@ class TasksController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def task_params
-    params.require(:task).permit(:title, :details, :priority, :status, :deadline)
+    params.require(:task).permit(:title, :details, :priority, :status, :deadline, :project_id).merge(user: current_user)
   end
 end
