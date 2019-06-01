@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :project do
-    name { "Project for test" }
-    details { "Just for testing" }
-    status { "1" }
+    name {"Project for test"}
+    details {"Just for testing"}
+    status {1}
     user
   end
 

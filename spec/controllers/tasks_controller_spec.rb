@@ -109,12 +109,12 @@ RSpec.describe TasksController, type: :controller do
   describe 'DELETE destroy' do
     it "deletes the task" do
       expect{
-        delete :destroy, params: { id: @task }
+        delete :destroy, params: {id: @task}
       }.to change(Task,:count).by(-1)
     end
 
     it "redirects to task#index" do
-      delete :destroy, params: { id: @task }
+      delete :destroy, params: {id: @task}
       expect(@task).to redirect_to tasks_url
     end
   end
