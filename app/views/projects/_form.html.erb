@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.select :status, { Pending: 'pending', In_Progress: 'in_progress', Finished: 'finished' }, { selected: project.status }, class: '' %>
   </div>
 
   <div class="actions">

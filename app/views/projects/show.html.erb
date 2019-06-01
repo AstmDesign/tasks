@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>User:</strong>
+  <%= @project.user.full_name %>
+</p>
+
+<p>
+  <strong>Project:</strong>
   <%= @project.name %>
 </p>
 
