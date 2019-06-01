@@ -6,4 +6,8 @@ class Task < ApplicationRecord
 
   # Validation
   validates :title, :deadline, presence: true
+
+  # Enum
+  enum status: %i[pending in_progress finished]
+  enum priority: %i[high normal low]
 end
