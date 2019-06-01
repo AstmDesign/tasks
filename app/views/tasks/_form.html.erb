@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :project_id %>
-    <%= form.select :project_id, options_from_collection_for_select(@projects, :id, :name, task.project_id), {:include_blank => true}, {required: 'true', class: '' , placeholder: 'Select project'} %>
+    <%= form.select :project_id, options_from_collection_for_select(@projects, :id, :name, task.project_id), {include_blank: true}, {required: 'true', class: 'form-control' , placeholder: 'Select project'} %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Project name', required: true %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :details %>
-    <%= form.text_area :details %>
+    <%= form.text_area :details, class: 'form-control', placeholder: 'Project name', required: true %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :priority %>
-    <%= form.select :priority, { High: 'high', Normal: 'normal', Low: 'low' }, { selected: task.priority }, class: '' %>
+    <%= form.select :priority, { High: 'high', Normal: 'normal', Low: 'low' }, { selected: task.priority }, class: 'form-control', required: true %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :status %>
-    <%= form.select :status, { Pending: 'pending', In_Progress: 'in_progress', Finished: 'finished' }, { selected: task.status }, class: '' %>
+    <%= form.select :status, { Pending: 'pending', In_Progress: 'in_progress', Finished: 'finished' }, { selected: task.status }, class: 'form-control', required: true %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :deadline %>
-    <%= form.datetime_select :deadline %>
+    <%= form.datetime_select :deadline, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
