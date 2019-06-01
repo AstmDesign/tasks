@@ -2,5 +2,5 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   protect_from_forgery with: :exception
   # Authenticate users
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 end
