@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_bot', '~> 5.0', '>= 5.0.2'
   gem 'shoulda-matchers', '~> 4.0', '>= 4.0.1'
   # gem 'capybara', '~> 3.14'
+  gem 'rails-controller-testing'
 
   # For fake data
   gem 'faker', '~> 1.9', '>= 1.9.3'
