@@ -3,8 +3,8 @@ FactoryBot.define do
     title   { "test title" }
     details { "test details" }
     deadline { "2019-05-31 22:00:00" }
-    priority { "1" }
-    status { "1" }
+    priority { 1 }
+    status { 1 }
     user
     project
   end
