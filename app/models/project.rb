@@ -4,7 +4,7 @@ class Project < ApplicationRecord
   belongs_to :user
 
   # Validation
-  validates :name, presence: true
+  validates :name, :status, presence: true
 
   # Enum
   enum status: %i[pending in_progress finished]

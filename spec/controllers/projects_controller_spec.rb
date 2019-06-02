@@ -48,9 +48,8 @@ RSpec.describe ProjectsController, type: :controller do
 
     context "with invalid attributes" do
       it "does not save the new project" do
-        expect{
-          post :create, params: {project: FactoryBot.attributes_for(:invalid_project)}
-        }.to_not change(Project,:count)
+        post :create, params: {project: FactoryBot.attributes_for(:invalid_project)}
+        expect(response).to_not change(Project,:count)
       end
 
       it "re-renders the new method" do
@@ -70,11 +69,11 @@ RSpec.describe ProjectsController, type: :controller do
       end
 
       it "changes project attributes" do
-        put :update, params: {id: @project, project: FactoryBot.attributes_for(:project, name: "new project", details: "new details", status: 2)}
+        put :update, params: {id: @project, project: FactoryBot.attributes_for(:project, name: "new project", details: "new details", status: "in_progress")}
         @project.reload
         @project.name.should eq("new project")
         @project.details.should eq("new details")
-        @project.status.should eq(2)
+        @project.status.should eq("in_progress")
       end
 
       it "redirects to the updated project" do
@@ -90,11 +89,11 @@ RSpec.describe ProjectsController, type: :controller do
       end
 
       it "does not change project attributes" do
-        put :update, params: {id: @project, project: FactoryBot.attributes_for(:project, name: nil, details: "new details")}
+        put :update, params: {id: @project, project: FactoryBot.attributes_for(:project, name: nil, details: "new details", status: nil)}
         @project.reload
         @project.name.should eq("Project for test")
         @project.details.should eq("Just for testing")
-        @project.status.should eq(1)
+        @project.status.should eq("in_progress")
       end
 
       it "re-renders the edit method" do

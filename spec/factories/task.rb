@@ -12,5 +12,6 @@ FactoryBot.define do
   factory :invalid_task, parent: :task do |f|
     f.title { nil }
     f.deadline { nil }
+    f.status { nil }
   end
 end

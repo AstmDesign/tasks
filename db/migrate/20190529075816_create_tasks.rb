@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :details
       t.datetime :deadline
-      t.string :priority, default: 0
+      t.integer :priority, default: 0
       t.integer :status, default: 0
 
       t.timestamps

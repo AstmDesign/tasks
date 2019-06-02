@@ -36,6 +36,10 @@ RSpec.describe Task, :type => :model do
       should validate_presence_of(:title)
     end
 
+    it "status must be require" do
+      should validate_presence_of(:status)
+    end
+    
     it "deadline must be require" do
       should validate_presence_of(:deadline)
     end

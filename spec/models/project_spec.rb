@@ -31,6 +31,10 @@ RSpec.describe Project, :type => :model do
     it "name must be require" do
       should validate_presence_of(:name)
     end
+
+    it "status must be require" do
+      should validate_presence_of(:status)
+    end
   end
 
 end

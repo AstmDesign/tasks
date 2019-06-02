@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   belongs_to :project
 
   # Validation
-  validates :title, :deadline, presence: true
+  validates :title, :status, :deadline, presence: true
 
   # Enum
   enum status: %i[pending in_progress finished]
