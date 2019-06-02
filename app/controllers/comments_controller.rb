@@ -12,10 +12,13 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @tasks = Task.all
   end
 
   # GET /comments/1/edit
-  def edit; end
+  def edit
+    @tasks = Task.all
+  end
 
   # POST /comments
   def create

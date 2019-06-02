@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :task_id %>
-    <%= form.text_field :task_id %>
+    <%= form.select :task_id, options_from_collection_for_select(@tasks, :id, :title, comment.task_id), {include_blank: true}, {required: 'true', class: 'form-control' , placeholder: 'Select task'} %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :comment %>
-    <%= form.text_field :comment %>
+    <%= form.text_field :comment, class: 'form-control', placeholder: 'comment', required: true %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

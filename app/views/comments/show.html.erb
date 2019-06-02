@@ -1,8 +1,11 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>User:</strong>
+  <%= @comment.user.full_name %>
+</p>
 
 <p>
   <strong>Task:</strong>
-  <%= @comment.task %>
+  <%= @comment.task.title %>
 </p>
 
 <p>
