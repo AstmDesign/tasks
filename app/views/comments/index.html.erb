@@ -6,7 +6,10 @@
 <div class="box">
   <!--box-header-->
   <div class="box-header">
-    <h3 class="box-title">Comments</h3>
+    <h3 class="box-title">
+      Comments
+      <small>( <%=pluralize(@comments.count,'comment')%> )</small>
+    </h3>
   </div><!--box-header-->
 
   <!--box-body-->
@@ -14,6 +17,7 @@
     <table class="table table-striped">
       <tbody>
         <tr>
+          <th>Project</th>
           <th>Task</th>
           <th>User</th>
           <th>Comment</th>
@@ -21,12 +25,25 @@
         </tr>
         <% @comments.each do |comment| %>
           <tr>
+            <td><%= comment.task.project.name %></td>
             <td><%= comment.task.title %></td>
             <td><%= comment.user.full_name %></td>
             <td><%= comment.comment %></td>
-            <td><%= link_to 'Show', comment %></td>
-            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-            <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <% if can? :read, comment %>
+                <%= link_to 'Show', comment %>
+              <% end %>
+            </td>
+            <td>
+              <% if can? :update, comment %>
+                <%= link_to 'Edit', edit_comment_path(comment) %>
+              <% end %>
+            </td>
+            <td>
+              <% if can? :destroy, comment %>
+                <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

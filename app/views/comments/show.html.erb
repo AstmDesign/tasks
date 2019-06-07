@@ -4,6 +4,11 @@
 </p>
 
 <p>
+  <strong>Project:</strong>
+  <%= @comment.task.project.name %>
+</p>
+
+<p>
   <strong>Task:</strong>
   <%= @comment.task.title %>
 </p>
@@ -13,5 +18,7 @@
   <%= @comment.comment %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% if can? :update, @comment %>
+  <%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% end %>
 <%= link_to 'Back', comments_path %>

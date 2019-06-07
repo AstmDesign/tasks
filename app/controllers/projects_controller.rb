@@ -1,9 +1,9 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
-  # GET /projects
+  # GET /projects for current user
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   # GET /projects/1
@@ -44,11 +44,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_project
-    @project = Project.find(params[:id])
-  end
 
   # Only allow a trusted parameter "white list" through.
   def project_params
