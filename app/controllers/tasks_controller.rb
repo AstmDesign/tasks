@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
-  # GET /tasks
+  # GET /tasks for current user
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   # GET /tasks/1
@@ -47,11 +47,6 @@ class TasksController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_task
-    @task = Task.find(params[:id])
-  end
 
   # Only allow a trusted parameter "white list" through.
   def task_params

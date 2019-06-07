@@ -6,7 +6,10 @@
 <div class="box">
   <!--box-header-->
   <div class="box-header">
-    <h3 class="box-title">Projects</h3>
+    <h3 class="box-title">
+      Projects
+      <small>( <%=pluralize(@projects.count,'project')%> )</small>
+    </h3>
   </div><!--box-header-->
 
   <!--box-body-->
@@ -26,9 +29,21 @@
             <td><%= project.name %></td>
             <td><%= project.details %></td>
             <td><%= project.status %></td>
-            <td><%= link_to 'Show', project %></td>
-            <td><%= link_to 'Edit', edit_project_path(project) %></td>
-            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <% if can? :read, project %>
+                <%= link_to 'Show', project %>
+              <% end %>
+            </td>
+            <td>
+              <% if can? :update, project %>
+                <%= link_to 'Edit', edit_project_path(project) %>
+              <% end %>
+            </td>
+            <td>
+              <% if can? :destroy, project %>
+                <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

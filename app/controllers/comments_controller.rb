@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
-  # GET /comments
+  # GET /comments for current user
   def index
-    @comments = Comment.all
+    @comments = current_user.comments
   end
 
   # GET /comments/1
@@ -48,13 +48,8 @@ class CommentsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
-
   # Only allow a trusted parameter "white list" through.
   def comment_params
-    params.require(:comment).permit(:task_id, :comment)
+    params.require(:comment).permit(:task_id, :comment).merge(user: current_user)
   end
 end

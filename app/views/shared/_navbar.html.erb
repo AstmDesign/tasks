@@ -1,0 +1,21 @@
+<br><br>
+<div class="col-md-12">
+  <% if current_user %>
+    Hello: <%=current_user.full_name %>
+    |
+    role:
+    <%=current_user.admin == true ? "Admin" : "User" %>
+    |
+    <%=link_to projects_path do %> projects <% end %>
+    |
+    <%=link_to tasks_path do %> tasks <% end %>
+    |
+    <%=link_to comments_path do %> comments <% end %>
+    |
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+
+  <% else %>
+    <%= link_to('Login', new_user_session_path) %>
+  <% end %>
+</div>
+<br><br>
